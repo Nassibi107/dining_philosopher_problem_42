@@ -54,11 +54,11 @@ void	checker_parcing(int flag)
 int	main(int ac, char **av)
 {
 	int		i;
-	// t_tb	*tb ;
+	t_tb	*tb ;
 
-	// tb = malloc(sizeof(t_tb));
-	// if (!tb)
-	// 	err(2);
+	tb = malloc(sizeof(t_tb));
+	if (!tb)
+		err(2);
 	i = 1;
 	if (ac == 5 || ac == 6)
 	{
@@ -68,8 +68,17 @@ int	main(int ac, char **av)
 				checker_parcing(3);
 			i++;
 		}
-      printf("all are ok");
-      exit(0);
+	init(tb, ac, av);
+	// dug init
+
+		printf("{nbr_of_ph:%ld}\t",tb->nbr_of_ph);
+		printf("{ttd:%ld}\t",tb->ttd);
+		printf("{tte:%ld}\t",tb->tte);
+		printf("{tts:%ld}\t",tb->tts);
+		printf("{nbr_limit_pla:%ld}\t",tb->nbr_limit_pla);
+		printf("\n");
+
+	exit(0);
 	}
 	else
 		printf("number of arg are notValid");

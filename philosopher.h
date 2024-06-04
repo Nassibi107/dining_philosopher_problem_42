@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 18:12:30 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/04 18:54:24 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/04 19:22:52 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,4 @@ int	ft_atoi(const char *str);
 int	ins_range(long n);
 int	is_digit(char *s);
 int	ft_isnumber(char *av);
+int	init(t_tb *tb, int ac, char *av[]);
