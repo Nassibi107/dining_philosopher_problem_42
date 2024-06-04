@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 18:12:30 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/04 19:22:52 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/04 21:07:30 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,19 @@ struct s_philo
    pthread_t r_philo;
 } ;
 
+typedef enum s_obj
+{
+   mut_lock,
+   mut_unlock,
+   mut_init,
+   mut_des
+}t_obj;
+
+void  *my_malloc(unsigned long sb);
+void  muts(t_obj obj, t_mut *mut);
 int	ft_atoi(const char *str);
 int	ins_range(long n);
 int	is_digit(char *s);
 int	ft_isnumber(char *av);
-int	init(t_tb *tb, int ac, char *av[]);
+void	init(t_tb *tb, int ac, char *av[]);
+void	checker_parcing(int flag);
