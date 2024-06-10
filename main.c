@@ -71,11 +71,11 @@ int	main(int ac, char **av)
 	init(tb, ac, av);
 	// dug init
 
-		printf("{nbr_of_ph:%ld}\t",tb->nbr_of_ph);
+		printf("{nbr_of_ph:%d}\t",tb->nbr_of_ph);
 		printf("{ttd:%ld}\t",tb->ttd);
 		printf("{tte:%ld}\t",tb->tte);
 		printf("{tts:%ld}\t",tb->tts);
-		printf("{nbr_limit_pla:%ld}\t",tb->nbr_limit_pla);
+		printf("{nbr_limit_pla:%d}\t",tb->nbr_limit_pla);
 		printf("\n");
 
 	exit(0);

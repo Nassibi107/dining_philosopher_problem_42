@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:11:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/04 19:31:59 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:54:29 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,23 @@ int	init(t_tb *tb, int ac, char *av[])
 		tb->nbr_limit_pla = i - 1337;
 	free(arr);
 	return (1);
+}
+int	tk_fork(t_tb *tb)
+{
+	int		i;
+	t_philo	*philos;
+
+	philos = tb->philos;
+	i = -1;
+	while (++i < tb->nbr_of_ph)
+		pthread_mutex_init(&tb->forks[i], NULL);
+	i = 0;
+	philos[0].left_f = &tb->forks[0];
+	philos[0].right_f = &tb->forks[tb->nbr_of_ph - 1];
+	while (++i < tb->nbr_of_ph)
+	{
+		philos[i].left_f = &tb->forks[i];
+		philos[i].right_f = &tb->forks[i - 1];
+	}
+	return (0);
 }

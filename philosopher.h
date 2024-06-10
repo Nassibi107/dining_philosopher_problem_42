@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 18:12:30 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/10 19:33:51 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:46:34 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@ typedef struct s_tb
 	t_philo			*philos;
 }t_tb;
 
+typedef enum s_obj
+{
+   mut_lock,
+   mut_unlock,
+   mut_init,
+   mut_des
+}t_obj;
 // routine.c
 void		*routine(void *philo_p);
 bool		philo_died(t_philo *philo);
@@ -130,10 +137,17 @@ void		set_keep_iterating(t_tb *data, bool set_to);
 void		set_philo_state(t_philo *philo, t_state state);
 
 // utils.c
-bool		nb_meals_option(t_data *data);
-void		free_data(t_data *data);
-void		print_msg(t_data *data, int id, char *msg);
-void		print_mut(t_data *data, char *msg);
+bool		nb_meals_option(t_tb *data);
+void		free_data(t_tb *data);
+void		print_msg(t_tb *data, int id, char *msg);
+void		print_mut(t_tb *data, char *msg);
 int			handle_1_philo(t_philo *philo);
 
+/// -----------------
+void	checker_parcing(int flag);
+int	ft_atoi(const char *str);
+int	ins_range(long n);
+int	is_digit(char *s);
+int	ft_isnumber(char *av);
+int	init(t_tb *tb, int ac, char *av[]);
 #endif
