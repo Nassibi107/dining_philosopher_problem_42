@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 18:12:30 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/10 19:46:34 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:10:01 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_philo
 	t_mut	mut_nb_meals_had;
 	t_mut	last_pla_t;
 	long		last_eat_time;
-}t_philo;
+}	t_philo;
 
 typedef struct s_tb
 {
@@ -125,11 +125,11 @@ int			think(t_philo *philo);
 long	get_die_time(t_tb *data);
 long	get_eat_time(t_tb *data);
 long	get_sleep_time(t_tb *data);
-bool		get_keep_iter(t_tb *data);
-long	get_start_time(t_tb *data);
-int			get_nb_philos(t_tb *data);
+int	get_rep(t_tb *data);
+long	get_timer(t_tb *data);
+int	get_nph(t_tb *data);
 t_state		get_philo_state(t_philo *philo);
-int			get_nb_meals_philo_had(t_philo *philo);
+int	getting(t_philo *philo);
 long	get_last_eat_time(t_philo *philo);
 
 // setters.c
@@ -142,12 +142,20 @@ void		free_data(t_tb *data);
 void		print_msg(t_tb *data, int id, char *msg);
 void		print_mut(t_tb *data, char *msg);
 int			handle_1_philo(t_philo *philo);
-
 /// -----------------
 void	checker_parcing(int flag);
 int	ft_atoi(const char *str);
+long	mut_ttd(t_tb *tb);
+long	mut_tts(t_tb *tb);
+long	mut_tte(t_tb *tb);
+void  muts(t_obj obj, t_mut *mut);
 int	ins_range(long n);
 int	is_digit(char *s);
+long	mut_lpt(t_philo *philo);
 int	ft_isnumber(char *av);
 int	init(t_tb *tb, int ac, char *av[]);
+int	tk_fork(t_tb *tb);
+void	setting_repeat(t_tb *tb, int set_to);
+
+void	ft_rip(t_philo *philo, t_state state);
 #endif
