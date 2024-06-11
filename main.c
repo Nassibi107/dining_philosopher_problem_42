@@ -77,8 +77,9 @@ int	main(int ac, char **av)
 		printf("{tts:%ld}\t",tb->tts);
 		printf("{nbr_limit_pla:%d}\t",tb->nbr_limit_pla);
 		printf("\n");
-
-	exit(0);
+		tk_fork(tb);
+		render_philo(tb);
+		join_us(tb);
 	}
 	else
 		printf("number of arg are notValid");

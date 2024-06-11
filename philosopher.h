@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 18:12:30 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/10 21:10:01 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:32:44 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void		*all_full_routine(void *data_p);
 void		*all_alive_routine(void *data_p);
 
 // eat_1.c
-int			eat(t_philo *philo);
 void		update_last_meal_time(t_philo *philo);
 
 // eat_2.c
@@ -134,7 +133,7 @@ long	get_last_eat_time(t_philo *philo);
 
 // setters.c
 void		set_keep_iterating(t_tb *data, bool set_to);
-void		set_philo_state(t_philo *philo, t_state state);
+void		ft_rip(t_philo *philo, t_state state);
 
 // utils.c
 bool		nb_meals_option(t_tb *data);
@@ -156,6 +155,21 @@ int	ft_isnumber(char *av);
 int	init(t_tb *tb, int ac, char *av[]);
 int	tk_fork(t_tb *tb);
 void	setting_repeat(t_tb *tb, int set_to);
-
+int	eat(t_philo *philo);
 void	ft_rip(t_philo *philo, t_state state);
+int	forks(t_philo *philo);
+int	thinking(t_philo *ph);
+int	sleeping(t_philo *ph);
+int	render_philo(t_tb *tb);
+int	join_us(t_tb *data);
 #endif
+//_
+//
+// state of philo change
+
+// 0 deid
+// 1 thinking
+// 2 eating
+// 3 sleeping
+// 4 done
+// 5 IDLE
