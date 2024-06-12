@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 18:12:30 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/11 18:32:44 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/12 20:41:06 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void		set_keep_iterating(t_tb *data, bool set_to);
 void		ft_rip(t_philo *philo, t_state state);
 
 // utils.c
-bool		nb_meals_option(t_tb *data);
+
 void		free_data(t_tb *data);
 void		print_msg(t_tb *data, int id, char *msg);
 void		print_mut(t_tb *data, char *msg);
@@ -162,6 +162,13 @@ int	thinking(t_philo *ph);
 int	sleeping(t_philo *ph);
 int	render_philo(t_tb *tb);
 int	join_us(t_tb *data);
+int 	is_died(t_philo *philo);
+int	nb_meals_option(t_tb *data);
+int	onph(t_philo *philo);
+int	my_turn(t_philo *philo);
+void	lost_fork (t_philo *philo , int f);
+int	get_forks(t_philo *philo, int f);
+void	mut_ltm(t_philo *philo);
 #endif
 //_
 //

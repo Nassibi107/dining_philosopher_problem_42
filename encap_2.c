@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:11:59 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/10 21:03:51 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/12 20:40:54 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,10 @@ long	mut_lpt(t_philo *philo)
 	last_eat_time = philo->last_eat_time;
 	muts(mut_unlock, &philo->last_pla_t);
 	return (last_eat_time);
+}
+void	mut_ltm(t_philo *philo)
+{
+	muts(mut_lock,&philo->last_pla_t);
+	philo->last_eat_time = ft_time();
+	muts(mut_unlock,&philo->last_pla_t);
 }

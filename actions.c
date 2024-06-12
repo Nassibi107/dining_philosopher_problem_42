@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 21:11:17 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/11 18:30:22 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/12 20:35:53 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	eat(t_philo *philo)
 {
-	if (take_forks(philo) != 0)
+	if (my_turn(philo) != 0)
 		return (1);
 	ft_rip(philo, 2);
 	print_msg(philo->data, philo->key, EAT);
 	muts(mut_lock,&philo->last_pla_t);
 	philo->last_eat_time = ft_time();
 	muts(mut_unlock,&philo->last_pla_t);
-	ft_usleep(get_eat_time(philo->data));
+	ft_usleep(mut_tte(philo->data));
 	muts(mut_lock ,&philo->mut_nb_meals_had);
 	philo->c_pla++;
 	muts(mut_unlock,&philo->mut_nb_meals_had);
@@ -33,15 +33,15 @@ int	eat(t_philo *philo)
 int	forks(t_philo *philo)
 {
 	if (get_nph(philo->data))
-		return (handle_1_philo(philo));
-	if (philo_died(philo) || get_philo_state(philo) == DEAD)
+		return (onph(philo));
+	if (is_died(philo) || get_philo_state(philo) == DEAD)
 		return (1);
 	else
 	{
 		pthread_mutex_lock(philo->right_f);
 		print_msg(philo->data, philo->key, TAKE_FORKS);
 	};
-	if (philo_died(philo) || get_philo_state(philo) == DEAD)
+	if (is_died(philo) || get_philo_state(philo) == DEAD)
 	{
 		muts(mut_lock ,philo->right_f);
 		return (1);
@@ -59,7 +59,7 @@ int	sleeping(t_philo *ph)
 	if (!get_philo_state(ph))
 		return (1);
 	print_msg(ph->data, ph->key, SLEEP);
-	ft_usleep(get_sleep_time(ph->data));
+	ft_usleep(mut_tts(ph->data));
 	return (0);
 }
 

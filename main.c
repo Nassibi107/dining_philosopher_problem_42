@@ -13,6 +13,30 @@
 
 #include "philosopher.h"
 
+
+void	*routine(void *philo_p)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *) philo_p;
+	mut_ltm(philo);
+	if (philo->key % 2 == 0)
+		ft_usleep(philo->data->tte - 10);
+	while (getting(philo) != DEAD)
+	{
+		if (eat(philo) != 0)
+			break ;
+		if (getting(philo) == DEAD)
+			break ;
+		if (sleeping(philo) != 0)
+			break ;
+		if (getting(philo) == DEAD)
+			break ;
+		if (thinking(philo) != 0)
+			break ;
+	}
+	return (NULL);
+}
 void	err(int flag)
 {
 	if (flag == 0)
@@ -69,17 +93,9 @@ int	main(int ac, char **av)
 			i++;
 		}
 	init(tb, ac, av);
-	// dug init
-
-		printf("{nbr_of_ph:%d}\t",tb->nbr_of_ph);
-		printf("{ttd:%ld}\t",tb->ttd);
-		printf("{tte:%ld}\t",tb->tte);
-		printf("{tts:%ld}\t",tb->tts);
-		printf("{nbr_limit_pla:%d}\t",tb->nbr_limit_pla);
-		printf("\n");
-		tk_fork(tb);
-		render_philo(tb);
-		join_us(tb);
+	tk_fork(tb);
+	// render_philo(tb);
+	// join_us(tb);
 	}
 	else
 		printf("number of arg are notValid");

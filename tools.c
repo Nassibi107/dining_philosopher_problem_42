@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:02:08 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/11 18:38:12 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/12 20:34:16 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	render_philo(t_tb *tb)
 	if (pthread_create(&tb->monit_all_alive, NULL,
 			&all_alive_routine, tb))
 		return (1);
-	if (nb_meals_option(tb) == true
+	if (nb_meals_option(tb) == 1
 		&& pthread_create(&tb->monit_all_full, NULL,
 			&all_full_routine, tb))
 		return (1);
@@ -57,16 +57,38 @@ int	join_us(t_tb *data)
 	return (0);
 }
 
-int	philosophers(int argc, char **argv)
+
+int	onph(t_philo *philo)
 {
-	t_tb	data;
-	if (init_data(&data, argc, argv) != 0)
-		return (MALLOC_ERROR);
-	init_philos(&data);
-	init_forks(&data);
-	run_threads(&data);
-	join_threads(&data);
-	free_data(&data);
+	get_forks(philo, 0);
+	ft_usleep(mut_ttd(philo->data));
+	ft_rip(philo, DEAD);
+	return (1);
+}
+
+int	nb_meals_option(t_tb *ph)
+{
+	if (ph->nbr_limit_pla > 0)
+		return (1);
 	return (0);
 }
 
+
+
+void	print_msg(t_tb *data, int id, char *msg)
+{
+	uint64_t	time;
+
+	time = ft_time() - get_timer(data);
+	pthread_mutex_lock(&data->mut_print);
+	if (get_rep(data))
+		printf("%llu %d %s\n", time, id, msg);
+	pthread_mutex_unlock(&data->mut_print);
+}
+
+// void	print_mut(t_data *data, char *msg)
+// {
+// 	pthread_mutex_lock(&data->mut_print);
+// 	printf("%s\n", msg);
+// 	pthread_mutex_unlock(&data->mut_print);
+// }
