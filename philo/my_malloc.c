@@ -5,38 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 19:43:40 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/04 20:05:45 by ynassibi         ###   ########.fr       */
+/*   Created: 2024/06/15 15:32:57 by ynassibi          #+#    #+#             */
+/*   Updated: 2024/06/15 15:52:55 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosopher.h"
-#include <pthread.h>
 
+
+#include "philo.h"
+
+void	err_aloc()
+{
+	write(2 ,"Error!!\n", 9);
+	write(2 ,"mut or malloc failler!!\n", 25);
+	exit(EXIT_FAILURE);
+}
 void  muts(t_obj obj, t_mut *mut)
 {
    if (obj == mut_lock)
    {
         if (pthread_mutex_lock(mut))
-         checker_parcing(5);
+      err_aloc();
    }
    else if (obj == mut_unlock)
    {
       if (pthread_mutex_unlock(mut))
-         checker_parcing(5);
+      err_aloc();
    }
    else if (obj == mut_init)
    {
       if (pthread_mutex_init(mut, NULL))
-         checker_parcing(5);
+      err_aloc();
    }
    else if (obj == mut_des)
     {
       if (pthread_mutex_destroy(mut))
-         checker_parcing(5);
+      err_aloc();
     }
    else
-      checker_parcing(5);
+   err_aloc();
 }
 
 
@@ -45,7 +52,9 @@ void *my_malloc(unsigned long sb)
    void  *alc;
    alc = malloc(sb);
    if (!alc)
-      checker_parcing(1);
+       err_aloc();
    return (alc);
 }
+
+
 
