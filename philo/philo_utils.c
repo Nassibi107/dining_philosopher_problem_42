@@ -52,13 +52,13 @@ long long	rest_routine(long long t_ime, t_philo *data)
 	pthread_mutex_unlock(data->left_fork);
 	pthread_mutex_unlock(data->right_fork);
 	t_ime2 = get_time();
-	ft_sleep(data->id, t_ime2 - t_ime, data);
+	ft_sleep(data->key, t_ime2 - t_ime, data);
 	if (data->tts > data->ttd && data->fa->diedd)
 	{
 		sleep_thread(data->ttd);
 		pthread_mutex_lock(data->print);
 		if (data->fa->diedd)
-			printf("%lld		%d died\n", get_time() - t_ime, data->id);
+			printf("%lld		%d died\n", get_time() - t_ime, data->key);
 		data->fa->diedd = 0;
 		pthread_mutex_unlock(data->print);
 	}
@@ -71,24 +71,24 @@ long long	start_routine(long long t_ime, t_philo *data)
 	long long	t_ime2;
 
 	t_ime2 = get_time();
-	ft_think(data->id, t_ime2 - t_ime, data);
-	if (data->tte > data->ttd && data->id % 2 != 0)
+	ft_think(data->key, t_ime2 - t_ime, data);
+	if (data->tte > data->ttd && data->key % 2 != 0)
 	{
 		sleep_thread(data->ttd);
 		pthread_mutex_lock(data->print);
 		if (data->fa->diedd)
-			printf("%lld		%d died\n", get_time() - t_ime, data->id);
+			printf("%lld		%d died\n", get_time() - t_ime, data->key);
 		data->fa->diedd = 0;
 		pthread_mutex_unlock(data->print);
 	}
 	pthread_mutex_lock(data->left_fork);
 	t_ime2 = get_time();
-	lefthastk(data->id, t_ime2 - t_ime, data);
+	lefthastk(data->key, t_ime2 - t_ime, data);
 	pthread_mutex_lock(data->right_fork);
 	t_ime2 = get_time();
-	lefthastk(data->id, t_ime2 - t_ime, data);
+	lefthastk(data->key, t_ime2 - t_ime, data);
 	t_ime2 = get_time();
-	ft_eat(data->id, t_ime2 - t_ime, data);
+	ft_eat(data->key, t_ime2 - t_ime, data);
 	sleep_thread(data->tte);
 	return (t_ime2);
 }

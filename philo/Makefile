@@ -2,14 +2,15 @@ NAME = philo
 
 SRCS = philo_utils.c \
 	   my_malloc.c \
-	   philo_utils1.c \
+	   ft_init.c \
+	   actions.c \
 	   philo_utils2.c \
 	   main.c \
 	   philo_utils3.c \
 
 OBJS = $(SRCS:.c=.o)
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra  -fsanitize=thread
 
 CC = gcc
 

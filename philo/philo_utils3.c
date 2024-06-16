@@ -29,7 +29,7 @@ void	philo_one(char **av)
 	printf("%d		1 died\n", ft_atoi(av[2]));
 }
 
-void	free_mem(t_philo *data, pthread_mutex_t *forks)
+void	free_mem(t_philo *data, t_mut *forks)
 {
 	free(data->fa);
 	free(data);

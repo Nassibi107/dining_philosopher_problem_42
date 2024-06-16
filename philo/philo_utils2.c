@@ -12,7 +12,7 @@ void	sleep_thread(long long n)
 	}
 }
 
-void	finishing(t_philo *data, pthread_mutex_t *forks, char **av)
+void	finishing(t_philo *data, t_mut *forks, char **av)
 {
 	int		i;
 	int		k;
@@ -34,8 +34,8 @@ void	finishing(t_philo *data, pthread_mutex_t *forks, char **av)
 	}
 }
 
-void	initialize(pthread_mutex_t *forks, \
-							t_philo *data, char **av, pthread_mutex_t a)
+void	initialize(t_mut *forks, \
+							t_philo *data, char **av, t_mut a)
 {
 	int		k;
 	int		j;
@@ -51,7 +51,7 @@ void	initialize(pthread_mutex_t *forks, \
 	j = 0;
 	while (j < k)
 	{
-		data[j].id = j + 1;
+		data[j].key = j + 1;
 		data[j].print = &a;
 		data[j].left_fork = &forks[j];
 		data[j].right_fork = &forks[(j + 1) % k];
@@ -67,7 +67,7 @@ void	khouta_b(long long t, long long t_ime2, t_philo *data)
 	{
 		if (data->fa->diedd == 1)
 		{
-			printf("%lld		%d is died\n", t_ime2 - t, data->id);
+			printf("%lld		%d is died\n", t_ime2 - t, data->key);
 			data->fa->diedd = 0;
 		}
 	}

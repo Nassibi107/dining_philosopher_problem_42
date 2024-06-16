@@ -24,7 +24,7 @@ typedef struct s_philo
 	t_mut	*right_fork;
 	t_mut	*print;
 	pthread_t		a_th;
-	int				id;
+	int				key;
 	int				philo_num;
 	int				ttd;
 	int				tte;
@@ -43,7 +43,8 @@ typedef enum s_obj
 	mut_des
 }t_obj;
 
-void  muts(t_obj obj, t_mut *mut);
+void	muts(t_obj obj, t_mut *mut);
+int	t_mutfork_key(int *arr, t_mut *frk, t_mut fk , t_philo *pht);
 int			ft_atoi(const char *str);
 long long	get_time(void);
 void		ft_think(int n, long long dif, t_philo *data);
@@ -61,5 +62,5 @@ int			check_arg(char **av);
 void		philo_one(char **av);
 void		khouta_b(long long t, long long t_ime2, t_philo *data);
 void		free_mem(t_philo *data, t_mut *forks);
-
+t_mut		*init(t_philo *tb, int ac, char *av[], t_mut fk);
 #endif

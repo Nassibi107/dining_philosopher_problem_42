@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:32:57 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/15 15:52:55 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/16 12:06:26 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ void  muts(t_obj obj, t_mut *mut)
    if (obj == mut_lock)
    {
         if (pthread_mutex_lock(mut))
-      err_aloc();
+         err_aloc();
    }
    else if (obj == mut_unlock)
    {
       if (pthread_mutex_unlock(mut))
-      err_aloc();
+         err_aloc();
    }
    else if (obj == mut_init)
    {
       if (pthread_mutex_init(mut, NULL))
-      err_aloc();
+         err_aloc();
    }
    else if (obj == mut_des)
     {
       if (pthread_mutex_destroy(mut))
-      err_aloc();
+       err_aloc();
     }
    else
    err_aloc();

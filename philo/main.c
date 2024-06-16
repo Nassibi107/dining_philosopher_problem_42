@@ -6,7 +6,7 @@ void	helpful_call(t_philo *data, int *i)
 		*i = -2;
 	else
 		*i = 0;
-	if (data->id % 2 == 0)
+	if (data->key % 2 == 0)
 		usleep(1000);
 }
 
