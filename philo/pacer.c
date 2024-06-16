@@ -6,13 +6,23 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 12:40:36 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/16 12:50:23 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/16 14:15:57 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 #include <limits.h>
 
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+		i++;
+	return(i);
+}
 
 int	ins_range(long n)
 {
@@ -24,13 +34,15 @@ int	ins_range(long n)
 int	is_digit(char *s)
 {
 	int	i;
+	int	size;
 
+	size = ft_strlen(s);
 	i = 0x0;
-	while (s[i])
+	while (i < size)
 	{
 		if (!(s[i] >= 48 && s[i] <= 57))
 			return (0x0);
-      i++;
+		i++;
 	}
 	return (0x1);
 }
@@ -45,15 +57,15 @@ int	parcer(char **av , int ac)
 {
 	int	i;
 
-	i = 0;
-	while (i < ac)
+	i = 1;
+	while ( i < ac  - 1)
 		{
 			if (ft_isnumber(av[i]) == 1)
 			{
 				printf("parcer erorr");
 					return (1);
 			}
-			i++;
+		i++;
 	}
 	return (0);
 }

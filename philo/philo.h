@@ -42,7 +42,8 @@ typedef enum s_obj
 	mut_init,
 	mut_des
 }t_obj;
-
+void	init_data(t_philo *ph,t_mut *forchettes ,int size);
+void	init_forchettes(t_mut *forchettes, int size);
 int	parcer(char **av , int ac);
 void	muts(t_obj obj, t_mut *mut);
 int	t_mutfork_key(int *arr, t_mut *frk, t_mut fk , t_philo *pht);
@@ -56,8 +57,7 @@ long long	rest_routine(long long t_ime, t_philo *data);
 long long	start_routine(long long t_ime, t_philo *data);
 void		sleep_thread(long long n);
 void		finishing(t_philo *data, t_mut *forks, char **av);
-void		initialize(t_mut *forks, \
-								t_philo *data, char **av, t_mut a);
+void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb);
 void		full_again(t_philo *data, char **av, int i, int ac);
 int			check_arg(char **av);
 void		philo_one(char **av);

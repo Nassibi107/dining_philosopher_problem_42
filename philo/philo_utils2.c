@@ -34,29 +34,16 @@ void	finishing(t_philo *data, t_mut *forks, char **av)
 	}
 }
 
-void	initialize(t_mut *forks, \
-							t_philo *data, char **av, t_mut a)
+void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb)
 {
-	int		k;
-	int		j;
+	int		ii;
 
-	j = 0;
-	k = ft_atoi(av[1]);
-	pthread_mutex_init(&a, NULL);
-	while (j < k)
-	{
-		pthread_mutex_init(&forks[j], NULL);
-		j++;
-	}
-	j = 0;
-	while (j < k)
-	{
-		data[j].key = j + 1;
-		data[j].print = &a;
-		data[j].left_fork = &forks[j];
-		data[j].right_fork = &forks[(j + 1) % k];
-		j++;
-	}
+	ii = -1;
+	init_forchettes(forks, nb);
+	init_data(ph,forks, nb);
+	while (++ii < nb)
+			ph[ii].print = &a;
+
 }
 
 void	khouta_b(long long t, long long t_ime2, t_philo *data)

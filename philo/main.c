@@ -1,4 +1,5 @@
 #include "philo.h"
+#include <stdio.h>
 
 
 
@@ -78,29 +79,40 @@ void	full_data(t_philo *data, char **av, int ac)
 		j++;
 	}
 }
+int	ft_render(int ac , char **av , int n)
+{
+	int	s_t;
+	t_philo			*data;
+	t_mut	*forchettes;
+	t_mut	forkk;
+	s_t = ft_atoi(av[1]);
+	printf("%d",s_t);
+	data = malloc(sizeof(t_philo) * s_t );
+		if (!data)
+			return (1);
+	forchettes = malloc(sizeof(t_mut) * s_t);
+		if (!forchettes)
+			return (1);
+	pthread_mutex_init(&forkk, NULL);
+	lunch(forchettes, data, forkk, n);
+	full_data(data, av, ac);
+	finishing(data, forchettes, av);
+	free_mem(data, forchettes);
+	pthread_mutex_destroy(&forkk);
+	return (0);
+}
 
 int	main(int ac, char **av)
 {
-	t_philo			*data;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	forkk;
+	int	n;
 
 	if (ac == 5 || ac == 6)
 	{
-		if (parcer(av, ac))
+		n = ft_atoi(av[1]);
+		if (parcer(av, ac) )
 				return (1);
-		data = malloc(sizeof(t_philo) * ft_atoi(av[1]));
-		if (!data)
+		if (ft_render(ac , av , n))
 			return (1);
-		forks = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
-		if (!forks)
-			return (1);
-		pthread_mutex_init(&forkk, NULL);
-		initialize(forks, data, av, forkk);
-		full_data(data, av, ac);
-		finishing(data, forks, av);
-		free_mem(data, forks);
-		pthread_mutex_destroy(&forkk);
 	}else
 		printf("what s hill !!");
 	return (0);
