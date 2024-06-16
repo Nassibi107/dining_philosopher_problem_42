@@ -7,6 +7,7 @@ SRCS = philo_utils.c \
 	   philo_utils2.c \
 	   main.c \
 	   philo_utils3.c \
+	   pacer.c \
 
 OBJS = $(SRCS:.c=.o)
 

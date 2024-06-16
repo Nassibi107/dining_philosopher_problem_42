@@ -1,5 +1,8 @@
 #include "philo.h"
 
+
+
+
 void	helpful_call(t_philo *data, int *i)
 {
 	if (data->ts_eats == -1)
@@ -82,23 +85,23 @@ int	main(int ac, char **av)
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	forkk;
 
-	if (ac <= 4 || ac <= 3)
-		return (write(2, "Wrong number of arguments\n", 26), 0);
-	if (check_arg(av) == FAILURE)
-		return (write(2, "Enter a corrects numbers\n", 25), 0);
-	if (ft_atoi(av[1]) == 0)
-		return (1);
-	data = malloc(sizeof(t_philo) * ft_atoi(av[1]));
-	if (!data)
-		return (1);
-	forks = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
-	if (!forks)
-		return (1);
-	pthread_mutex_init(&forkk, NULL);
-	initialize(forks, data, av, forkk);
-	full_data(data, av, ac);
-	finishing(data, forks, av);
-	free_mem(data, forks);
-	pthread_mutex_destroy(&forkk);
+	if (ac == 5 || ac == 6)
+	{
+		if (parcer(av, ac))
+				return (1);
+		data = malloc(sizeof(t_philo) * ft_atoi(av[1]));
+		if (!data)
+			return (1);
+		forks = malloc(sizeof(pthread_mutex_t) * ft_atoi(av[1]));
+		if (!forks)
+			return (1);
+		pthread_mutex_init(&forkk, NULL);
+		initialize(forks, data, av, forkk);
+		full_data(data, av, ac);
+		finishing(data, forks, av);
+		free_mem(data, forks);
+		pthread_mutex_destroy(&forkk);
+	}else
+		printf("what s hill !!");
 	return (0);
 }

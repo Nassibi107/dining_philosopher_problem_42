@@ -43,6 +43,7 @@ typedef enum s_obj
 	mut_des
 }t_obj;
 
+int	parcer(char **av , int ac);
 void	muts(t_obj obj, t_mut *mut);
 int	t_mutfork_key(int *arr, t_mut *frk, t_mut fk , t_philo *pht);
 int			ft_atoi(const char *str);

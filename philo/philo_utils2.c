@@ -73,3 +73,5 @@ void	khouta_b(long long t, long long t_ime2, t_philo *data)
 	}
 	pthread_mutex_unlock(data->print);
 }
+
+
