@@ -58,10 +58,13 @@ long long	start_routine(long long t_ime, t_philo *data);
 void		sleep_thread(long long n);
 void		finishing(t_philo *data, t_mut *forks, char **av);
 void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb);
-void		full_again(t_philo *data, char **av, int i, int ac);
+void	full_again(t_philo *data, int *arr, int n);
 int			check_arg(char **av);
 void		philo_one(char **av);
 void		khouta_b(long long t, long long t_ime2, t_philo *data);
 void		free_mem(t_philo *data, t_mut *forks);
 t_mut		*init(t_philo *tb, int ac, char *av[], t_mut fk);
+void	*routine(void *arg);
+void	full_data(t_philo *data, char **av, int ac);
+
 #endif

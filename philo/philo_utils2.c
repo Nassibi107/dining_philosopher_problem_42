@@ -12,27 +12,7 @@ void	sleep_thread(long long n)
 	}
 }
 
-void	finishing(t_philo *data, t_mut *forks, char **av)
-{
-	int		i;
-	int		k;
-	int		j;
 
-	i = 0;
-	j = 0;
-	k = ft_atoi(av[1]);
-	while (i < k)
-	{
-		pthread_join(data[i].a_th, NULL);
-		i++;
-	}
-	i = 0;
-	while (i < k)
-	{
-		pthread_mutex_destroy(&forks[i]);
-		i++;
-	}
-}
 
 void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb)
 {
