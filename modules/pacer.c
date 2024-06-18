@@ -6,13 +6,11 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 12:40:36 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/16 14:15:57 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:38:16 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
-#include <limits.h>
-
+#include "../include/philo.h"
 
 int	ft_strlen(char *str)
 {

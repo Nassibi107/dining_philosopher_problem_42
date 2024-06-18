@@ -1,5 +1,5 @@
 
-#include "philo.h"
+#include "../include/philo.h"
 
 static void	ft_fill_arr(int *arr, int ac, char **av)
 {
@@ -36,7 +36,7 @@ void ft_create(int *arr,t_philo *data, t_fa *fa,int n)
 	{
 		get_data(&data[ii], arr, n);
 		data[ii].fa = fa;
-		if (pthread_create(&data[ii].a_th, NULL, &routine, &data[ii]) != 0)
+		if (pthread_create(&data[ii].p_thread, NULL, &routine, &data[ii]) != 0)
 			printf("Error creating thread\n");
 	}
 }
@@ -54,10 +54,10 @@ void	ft_philanthropist(t_philo *data, char **av, int n)
 	fa = malloc(sizeof(t_fa));
 	if (!fa)
 		return ;
-	fa->diedd = 1;
+	fa->diedd = LIFE;
 	if (arr[0] == 1)
 	{
-		philo_one(av);
+		no_tb(arr[1]);
 		data[j].fa = fa;
 	}
 	else
