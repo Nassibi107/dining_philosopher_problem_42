@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:26 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:38:47 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 12:58:17 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*routine(void *arg)
 		data->t = s_rte(s.t0 , data);
 		data->t = wait_rte(s.t0 , data);
 		ft_sheft(data->t, s.t1, data);
-		if (data->fa->diedd == 0)
+		if (data->fa->diedd == DEATH)
 			return (0);
 		if (data->ts_eats == -1)
 			continue ;

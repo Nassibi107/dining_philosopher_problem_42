@@ -1,14 +1,13 @@
 NAME = philo
 
 SRCS = modules/actions.c  modules/ft_timer.c  modules/my_malloc.c \
-		 modules/philotr.c  modules/lunch.c   modules/pacer.c \
-		 modules/philotr.c  modules/lunch.c   modulesft_init.c \
-		 src/main.c \
+		 modules/philotr.c    modules/pacer.c modules/ft_init.c   modules/lunch.c  \
+		 modules/ft_atoi.c  src/main.c modules/ft_tools_routine.c
 
 
 OBJS = $(SRCS:.c=.o)
 
-FLAGS = -Wall -Werror -Wextra  -fsanitize=thread #-fsanitize=address
+FLAGS = -Wall -Werror -Wextra  -fsanitize=thread
 
 CC = gcc
 
