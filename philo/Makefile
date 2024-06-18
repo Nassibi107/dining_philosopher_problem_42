@@ -8,6 +8,8 @@ SRCS = philo_utils.c \
 		main.c \
 		philo_utils3.c \
 		pacer.c \
+		philotr.c \
+		ft_timer.c \
 
 OBJS = $(SRCS:.c=.o)
 

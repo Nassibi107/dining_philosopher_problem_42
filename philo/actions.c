@@ -61,10 +61,4 @@ void	*routine(void *arg)
 	}
 	return (0);
 }
-long long	get_time(void)
-{
-	struct timeval	time;
 
-	gettimeofday (&time, NULL);
-	return (((time.tv_sec * 1e3) + (time.tv_usec * 0.001)));
-}
