@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:44 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 15:38:11 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:02:13 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_time	get_time(void)
 {
 	struct timeval	time;
-	t_time		sec;
-	t_time		usec;
+	t_time			sec;
+	t_time			usec;
 
 	gettimeofday (&time, NULL);
 	sec = time.tv_sec * 1e3;
@@ -24,10 +24,11 @@ t_time	get_time(void)
 	return (usec + sec);
 }
 
-void	msg(t_time time,char *s, int key)
+void	msg(t_time time, char *s, int key)
 {
-	printf("%lld		%d %s\n", time, key ,s);
+	printf("%lld		%d %s\n", time, key, s);
 }
+
 void	no_tb(int e)
 {
 	msg(0, TAKE_FORKS, 1);

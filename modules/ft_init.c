@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:32 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:38:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:00:54 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	init_forchettes(t_mut *forchettes, int size)
 
 	ii = -1;
 	while (++ii < size)
-		muts(mut_init ,&forchettes[ii]);
+		muts(mut_init, &forchettes[ii]);
 }
-void	init_data(t_philo *ph,t_mut *forchettes ,int size)
+
+void	init_data(t_philo *ph, t_mut *forchettes, int size)
 {
 	int	ii;
 
@@ -32,6 +33,7 @@ void	init_data(t_philo *ph,t_mut *forchettes ,int size)
 		ph[ii].left_fork = &forchettes[ii];
 	}
 }
+
 static int	ft_wait(t_philo *ph, int n)
 {
 	int	tk;
@@ -45,6 +47,7 @@ static int	ft_wait(t_philo *ph, int n)
 		return (tk);
 	return (1);
 }
+
 static int	ft_destroy(t_mut *forks, int n)
 {
 	int	tk;
@@ -59,10 +62,10 @@ static int	ft_destroy(t_mut *forks, int n)
 	return (1);
 }
 
-void	ft_process(int n,t_philo *ph, t_mut *forks)
+void	ft_process(int n, t_philo *ph, t_mut *forks)
 {
-	if (ft_wait(ph , n))
-		return;
-	if (ft_destroy(forks , n))
-		return;
+	if (ft_wait(ph, n))
+		return ;
+	if (ft_destroy(forks, n))
+		return ;
 }

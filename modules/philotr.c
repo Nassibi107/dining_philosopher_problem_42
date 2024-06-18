@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:04:18 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 13:04:23 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:15:32 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ static void	ft_fill_arr(int *arr, int ac, char **av)
 void	get_data(t_philo *data, int *arr, int n)
 {
 	int	ii;
+
 	ii = 0;
 	data->philo_num = arr[ii++];
-	data->ttd =arr[ii++];
+	data->ttd = arr[ii++];
 	data->tte = arr[ii++];
 	data->tts = arr[ii++];
-
 	if (n == 6)
 		data->ts_eats = arr[ii];
 	else
 		data->ts_eats = -1332 + 42;
-
 }
-void ft_create(int *arr,t_philo *data, t_fa *fa,int n)
+
+void	ft_create(int *arr, t_philo *data, t_fa *fa, int n)
 {
 	int	ii;
 
-	ii  = -1;
+	ii = -1;
 	while (++ii < arr[0])
 	{
 		get_data(&data[ii], arr, n);
@@ -55,8 +55,9 @@ void ft_create(int *arr,t_philo *data, t_fa *fa,int n)
 void	ft_philanthropist(t_philo *data, char **av, int n)
 {
 	int		j;
+	int		*arr;
 	t_fa	*fa;
-	int	*arr;
+
 	arr = malloc(sizeof(int) * (n - 1));
 	if (!arr)
 		return ;
@@ -73,6 +74,5 @@ void	ft_philanthropist(t_philo *data, char **av, int n)
 	}
 	else
 		ft_create(arr, data, fa, n);
-
 	free(arr);
 }

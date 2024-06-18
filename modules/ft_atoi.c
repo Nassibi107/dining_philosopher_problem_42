@@ -6,18 +6,18 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:56:15 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 15:47:52 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:59:23 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-static int	overf(t_time  n, t_time  o);
-static int	rst(const char *s, t_time  rtn, int is_m);
+static int	overf(t_time n, t_time o);
+static int	rst(const char *s, t_time rtn, int is_m);
 
 int	ft_atoi(const char *str)
 {
-	int					is_m;
+	int			is_m;
 	t_time		res;
 
 	is_m = 1;
@@ -30,10 +30,10 @@ int	ft_atoi(const char *str)
 			is_m = is_m * -1;
 		str++;
 	}
-	return (rst(str,res, is_m) * is_m);
+	return (rst(str, res, is_m) * is_m);
 }
 
-static int	rst(const char *s, t_time  rtn, int is_m)
+static int	rst(const char *s, t_time rtn, int is_m)
 {
 	t_time	save;
 
@@ -52,7 +52,8 @@ static int	rst(const char *s, t_time  rtn, int is_m)
 	}
 	return (rtn);
 }
-static int	overf(t_time  n, t_time  o)
+
+static int	overf(t_time n, t_time o)
 {
 	if ((n / 10) == o)
 		return (0);

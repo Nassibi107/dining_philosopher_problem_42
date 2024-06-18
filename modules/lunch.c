@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:54 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 15:38:11 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:08:45 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,21 @@ void	my_sleep(t_time n)
 	}
 }
 
-void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb)
+void	lunch(t_mut *forks, t_philo *ph, t_mut a, int nb)
 {
 	int		ii;
 
 	ii = -1;
 	init_forchettes(forks, nb);
-	init_data(ph,forks, nb);
+	init_data(ph, forks, nb);
 	while (++ii < nb)
-			ph[ii].print = &a;
-
+		ph[ii].print = &a;
 }
 
 void	ft_sheft(t_time t, t_time t_s, t_philo *phs)
 {
 	t_s = get_time();
-	muts(mut_lock,phs->print);
+	muts(mut_lock, phs->print);
 	if ((t_s - t) > phs->ttd && phs->fa->diedd)
 	{
 		if (phs->fa->diedd == 1)
@@ -47,7 +46,5 @@ void	ft_sheft(t_time t, t_time t_s, t_philo *phs)
 			phs->fa->diedd = 0;
 		}
 	}
-	muts(mut_unlock ,phs->print);
+	muts(mut_unlock, phs->print);
 }
-
-

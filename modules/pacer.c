@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 12:40:36 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:38:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:13:06 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 int	ins_range(long n)
@@ -51,18 +51,19 @@ int	ft_isnumber(char *av)
 		return (1);
 	return (0);
 }
-int	parcer(char **av , int ac)
+
+int	parcer(char **av, int ac)
 {
 	int	i;
 
 	i = 1;
-	while ( i < ac  - 1)
+	while (i < (ac - 1))
+	{
+		if (ft_isnumber(av[i]) == 1)
 		{
-			if (ft_isnumber(av[i]) == 1)
-			{
-				printf("parcer erorr");
-					return (1);
-			}
+			printf("parcer erorr");
+			return (1);
+		}
 		i++;
 	}
 	return (0);

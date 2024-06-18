@@ -6,19 +6,20 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:32:57 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:38:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:11:17 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void	err_aloc()
+void	err_aloc(void)
 {
-	write(2 ,"Error!!\n", 9);
-	write(2 ,"mut or malloc failler!!\n", 25);
+	write(2, "Error!!\n", 9);
+	write(2, "mut or malloc failler!!\n", 25);
 	exit(EXIT_FAILURE);
 }
-void  muts(t_obj obj, t_mut *mut)
+
+void	muts(t_obj obj, t_mut *mut)
 {
 	if (obj == mut_lock)
 	{
@@ -41,17 +42,15 @@ void  muts(t_obj obj, t_mut *mut)
 			err_aloc();
 	}
 	else
-	err_aloc();
+		err_aloc();
 }
 
 void	*my_malloc(unsigned long sb)
 {
-	void  *alc;
+	void	*alc;
+
 	alc = malloc(sb);
 	if (!alc)
 		err_aloc();
 	return (alc);
 }
-
-
-
