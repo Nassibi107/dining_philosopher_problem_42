@@ -6,7 +6,7 @@ SRCS = modules/actions.c  modules/ft_timer.c  modules/my_malloc.c \
 
 OBJS = $(SRCS:.c=.o)
 
-FLAGS = -Wall -Werror -Wextra  -fsanitize=thread
+FLAGS = -Wall -Werror -Wextra
 
 CC = gcc
 

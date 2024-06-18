@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_malloc.c                                        :+:      :+:    :+:   */
+/*   my_my_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:32:57 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 16:11:17 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:34:26 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	err_aloc(void)
 {
 	write(2, "Error!!\n", 9);
-	write(2, "mut or malloc failler!!\n", 25);
-	exit(EXIT_FAILURE);
+	write(2, "mut or my_malloc failler!!\n", 25);
+	return;
 }
 
 void	muts(t_obj obj, t_mut *mut)

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:36:17 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 15:53:55 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:35:20 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ t_mut	*init(t_philo *tb, int ac, char *av[], t_mut fk);
 void	*routine(void *arg);
 void	ft_process(int n, t_philo *data, t_mut *forks);
 void	ft_philanthropist(t_philo *data, char **av, int ac);
+void	*my_malloc(unsigned long sb);
 
 #endif

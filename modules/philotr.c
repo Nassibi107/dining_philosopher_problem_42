@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 13:04:18 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 16:15:32 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:34:49 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	ft_philanthropist(t_philo *data, char **av, int n)
 	int		*arr;
 	t_fa	*fa;
 
-	arr = malloc(sizeof(int) * (n - 1));
+	arr = my_malloc(sizeof(int) * (n - 1));
 	if (!arr)
 		return ;
 	ft_fill_arr(arr, n, av);
 	j = 0;
-	fa = malloc(sizeof(t_fa));
+	fa = my_malloc(sizeof(t_fa));
 	if (!fa)
 		return ;
 	fa->diedd = LIFE;

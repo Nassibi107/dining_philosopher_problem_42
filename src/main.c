@@ -6,11 +6,12 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:41:32 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 16:19:48 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 16:34:49 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+#include <stdlib.h>
 
 int	ft_render(int ac, char **av, int n)
 {
@@ -20,10 +21,10 @@ int	ft_render(int ac, char **av, int n)
 	t_mut	fk;
 
 	s_t = ft_atoi(av[1]);
-	data = malloc(sizeof(t_philo) * s_t);
+	data = my_malloc(sizeof(t_philo) * s_t);
 	if (!data)
 		return (1);
-	forchettes = malloc(sizeof(t_mut) * s_t);
+	forchettes = my_malloc(sizeof(t_mut) * s_t);
 	if (!forchettes)
 		return (1);
 	muts(mut_init, &fk);
