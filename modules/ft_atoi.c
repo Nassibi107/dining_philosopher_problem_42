@@ -6,54 +6,55 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:56:15 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:57:02 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:47:52 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-
-static int	overf(long long int n, long long int o)
-{
-	if ((n / 10) == o)
-		return (0);
-	return (1);
-}
-
-static int	rst(long long int res, int sign, const char *str)
-{
-	long long int	old_res;
-
-	while (*str >= '0' && *str <= '9')
-	{
-		old_res = res;
-		res = res * 10 + (*str - '0');
-		if (overf(res, old_res) == 0)
-			str++;
-		else if (overf(res, old_res) == 1)
-		{
-			if (sign == -1)
-				return (0);
-			return (-1);
-		}
-	}
-	return (res);
-}
+static int	overf(t_time  n, t_time  o);
+static int	rst(const char *s, t_time  rtn, int is_m);
 
 int	ft_atoi(const char *str)
 {
-	long long int		res;
-	int					sign;
+	int					is_m;
+	t_time		res;
 
-	sign = 1;
+	is_m = 1;
 	res = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			sign = sign * -1;
+			is_m = is_m * -1;
 		str++;
 	}
-	return (rst(res, sign, str) * sign);
+	return (rst(str,res, is_m) * is_m);
+}
+
+static int	rst(const char *s, t_time  rtn, int is_m)
+{
+	t_time	save;
+
+	while (*s >= '0' && *s <= '9')
+	{
+		save = rtn;
+		rtn = rtn * 10 + (*s - '0');
+		if (overf(rtn, save) == 0)
+			s++;
+		else if (overf(rtn, save) == 1)
+		{
+			if (is_m == -1)
+				return (0);
+			return (-1);
+		}
+	}
+	return (rtn);
+}
+static int	overf(t_time  n, t_time  o)
+{
+	if ((n / 10) == o)
+		return (0);
+	return (1);
 }

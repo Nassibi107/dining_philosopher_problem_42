@@ -6,15 +6,15 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:54 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:38:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:38:11 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-void	my_sleep(long long n)
+void	my_sleep(t_time n)
 {
-	long long	tv;
+	t_time	tv;
 
 	tv = get_time();
 	while (get_time() - tv < n)
@@ -35,7 +35,7 @@ void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb)
 
 }
 
-void	ft_sheft(long long t, long long t_s, t_philo *phs)
+void	ft_sheft(t_time t, t_time t_s, t_philo *phs)
 {
 	t_s = get_time();
 	muts(mut_lock,phs->print);

@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:41:32 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:53:00 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 13:08:06 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int	main(int ac, char **av)
 			return (1);
 	}
 	else
-		printf("what s hill !!");
+		printf("number of arg are notValid");
 	return (0);
 }

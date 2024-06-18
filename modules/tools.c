@@ -6,15 +6,15 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 12:34:16 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:38:16 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:38:11 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-long long	wait_rte(long long t0, t_philo *data)
+t_time	wait_rte(t_time t0, t_philo *data)
 {
-	long long	t1;
+	t_time	t1;
 
 	muts(mut_unlock, data->left_fork);
 	muts(mut_unlock, data->right_fork);
@@ -33,9 +33,9 @@ long long	wait_rte(long long t0, t_philo *data)
 	return (get_time());
 }
 
-long long	s_rte(long long t0, t_philo *data)
+t_time	s_rte(t_time t0, t_philo *data)
 {
-	long long	t1;
+	t_time	t1;
 
 	t1 = get_time();
 	ft_think(data->key, t1 - t0, data);

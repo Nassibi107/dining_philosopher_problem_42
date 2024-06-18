@@ -6,17 +6,17 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:44 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:47:46 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:38:11 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-long long	get_time(void)
+t_time	get_time(void)
 {
 	struct timeval	time;
-	long long		sec;
-	long long		usec;
+	t_time		sec;
+	t_time		usec;
 
 	gettimeofday (&time, NULL);
 	sec = time.tv_sec * 1e3;
@@ -24,7 +24,7 @@ long long	get_time(void)
 	return (usec + sec);
 }
 
-void	msg(long long time,char *s, int key)
+void	msg(t_time time,char *s, int key)
 {
 	printf("%lld		%d %s\n", time, key ,s);
 }

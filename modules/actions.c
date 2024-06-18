@@ -6,7 +6,7 @@
 /*   By: ynassibi <ynassibi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 11:38:26 by ynassibi          #+#    #+#             */
-/*   Updated: 2024/06/18 12:58:17 by ynassibi         ###   ########.fr       */
+/*   Updated: 2024/06/18 15:38:11 by ynassibi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	*routine(void *arg)
 	}
 	return (0);
 }
-void	ft_eat(int n, long long time, t_philo *data)
+void	ft_eat(int n, t_time time, t_philo *data)
 {
 	muts(mut_lock ,data->print);
 	if (data->fa->diedd == 1)
@@ -48,7 +48,7 @@ void	ft_eat(int n, long long time, t_philo *data)
 	muts(mut_unlock ,data->print);
 }
 
-void	ft_sleep(int n, long long time, t_philo *data)
+void	ft_sleep(int n, t_time time, t_philo *data)
 {
 	muts(mut_lock ,data->print);
 	if (data->fa->diedd == 1)
@@ -56,7 +56,7 @@ void	ft_sleep(int n, long long time, t_philo *data)
 	muts(mut_unlock ,data->print);
 }
 
-void	ft_think(int n, long long time, t_philo *data)
+void	ft_think(int n, t_time time, t_philo *data)
 {
 		muts(mut_lock ,data->print);
 	if (data->fa->diedd == 1)
@@ -64,7 +64,7 @@ void	ft_think(int n, long long time, t_philo *data)
 	muts(mut_unlock ,data->print);
 }
 
-void	lefthastk(int n, long long time, t_philo *data)
+void	lefthastk(int n, t_time time, t_philo *data)
 {
 		muts(mut_lock ,data->print);
 	if (data->fa->diedd == 1)
