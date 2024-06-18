@@ -26,19 +26,19 @@ void	lunch(t_mut *forks, t_philo *ph, t_mut a ,int nb)
 
 }
 
-void	khouta_b(long long t, long long t_ime2, t_philo *data)
+void	ft_sheft(long long t, long long t_s, t_philo *phs)
 {
-	t_ime2 = get_time();
-	pthread_mutex_lock(data->print);
-	if ((t_ime2 - t) > data->ttd && data->fa->diedd)
+	t_s = get_time();
+	muts(mut_lock,phs->print);
+	if ((t_s - t) > phs->ttd && phs->fa->diedd)
 	{
-		if (data->fa->diedd == 1)
+		if (phs->fa->diedd == 1)
 		{
-			printf("%lld		%d is died\n", t_ime2 - t, data->key);
-			data->fa->diedd = 0;
+			printf("%lld		%d is died\n", t_s - t, phs->key);
+			phs->fa->diedd = 0;
 		}
 	}
-	pthread_mutex_unlock(data->print);
+	muts(mut_unlock ,phs->print);
 }
 
 

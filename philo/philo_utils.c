@@ -45,7 +45,7 @@ int	ft_atoi(const char *str)
 	return (rtn_atoi(res, sign, str) * sign);
 }
 
-long long	rest_routine(long long t_ime, t_philo *data)
+long long	wait_rte(long long t_ime, t_philo *data)
 {
 	long long	t_ime2;
 
@@ -66,7 +66,7 @@ long long	rest_routine(long long t_ime, t_philo *data)
 	return (get_time());
 }
 
-long long	start_routine(long long t_ime, t_philo *data)
+long long	s_rte(long long t_ime, t_philo *data)
 {
 	long long	t_ime2;
 

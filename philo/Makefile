@@ -4,7 +4,7 @@ SRCS = philo_utils.c \
 		my_malloc.c \
 		ft_init.c \
 		actions.c \
-		philo_utils2.c \
+		lunch.c \
 		main.c \
 		philo_utils3.c \
 		pacer.c \
